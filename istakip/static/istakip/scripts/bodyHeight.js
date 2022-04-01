@@ -4,8 +4,10 @@
 // var height = $('.input')
 // console.log($('.input').innerWidth())
 
+$(localStorage.getItem('button')).css({display: flex})
 
 $('.buttons#1').click(function( event ){ // <---- "event" parameter here
+    localStorage.setItem('button', '".buttons#1"')
     document.querySelector('#kayit').style.display = 'flex'
     var width = $('#1.register').outerWidth()
     $('#2.register').css({width: width})
@@ -17,9 +19,11 @@ $('.buttons#1').click(function( event ){ // <---- "event" parameter here
     $('.worker').css({height: toplam})
 });
 $('.buttons#2').click(function( event ){ // <---- "event" parameter here
+    localStorage.setItem('button', '".buttons#2"')
     document.querySelector('#takip').style.display = 'flex'
 });
 $('.buttons#3').click(function( event ){ // <---- "event" parameter here
+    localStorage.setItem('button', '".buttons#3"')
     document.querySelector('#ayarlar').style.display = 'flex'
 
     var toplam = 0
@@ -29,6 +33,7 @@ $('.buttons#3').click(function( event ){ // <---- "event" parameter here
     $('#ayarlar .worker').css({height: toplam})
 });
 $('.buttons#4').click(function( event ){ // <---- "event" parameter here
+    localStorage.setItem('button', '".buttons#4"')
     document.querySelector('#rapor').style.display = 'flex'
 
     var toplam = 0
