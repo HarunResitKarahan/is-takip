@@ -4,8 +4,11 @@
 // var height = $('.input')
 // console.log($('.input').innerWidth())
 
+if (localStorage.getItem('button') !== null) {
+    $(localStorage.getItem('button')).css({display: 'flex'})
+}
 // $(localStorage.getItem('button')).css({display: flex})
-console.log(localStorage.getItem('button'))
+// console.log(localStorage.getItem('button'))
 
 $('.buttons#1').click(function( event ){ // <---- "event" parameter here
     localStorage.setItem('button', '".buttons#1"')
