@@ -1,0 +1,57 @@
+* {
+    font-family: 'Epilogue', sans-serif;
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+  }
+  * a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  * a:hover {
+    color: black;
+  }
+  * p {
+    margin: 0 !important;
+    padding: 0 !important;
+    transition: none;
+  }
+  * .h4 {
+    color: rgba(0, 0, 0, 0.726);
+    font-size: 32px;
+    font-weight: 500;
+  }
+  * .h5 {
+    color: rgba(0, 0, 0, 0.555);
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  * input:focus {
+    outline: none;
+  }
+  * li {
+    list-style-type: none;
+  }
+  * hr {
+    border: 0;
+    width: 90%;    
+    margin: auto;         
+    background-color:rgba(0, 0, 0, 0.452);
+    margin-top: 40px;
+    margin-bottom: 30px;
+    height: 1px;
+  }
+  body {
+    margin: 0;
+  }
+  #app {
+    overflow: hidden;
+  }
+  *:focus {
+    outline: none;
+}
+* textarea {
+  resize: none;
+}
