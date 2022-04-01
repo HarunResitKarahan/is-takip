@@ -46,7 +46,7 @@ $('.cards').click(function( event ){ // <---- "event" parameter here
 });
 
 $('.kaydet').click(function( event ){ // <---- "event" parameter here
-    fetch('http://127.0.0.1:8000/workers/getworkers', {
+    fetch('https://isci-kayit.herokuapp.com/workers/getworkers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -61,7 +61,7 @@ $('.kaydet').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.update').click(function( event ){ // <---- "event" parameter here
-    fetch('http://127.0.0.1:8000/workers/getworkers', {
+    fetch('https://isci-kayit.herokuapp.com/workers/getworkers', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -77,7 +77,7 @@ $('.update').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.sil').click(function( event ){ // <---- "event" parameter here
-    fetch('http://127.0.0.1:8000/workers/getworkers', {
+    fetch('https://isci-kayit.herokuapp.com/workers/getworkers', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -93,7 +93,7 @@ $('.sil').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.fruitekaydet').click(function( event ){ // <---- "event" parameter here
-    fetch('http://127.0.0.1:8000/fruite', {
+    fetch('https://isci-kayit.herokuapp.com/fruite', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -108,7 +108,7 @@ $('.fruitekaydet').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.fruiteupdate').click(function( event ){ // <---- "event" parameter here
-    fetch('http://127.0.0.1:8000/fruite', {
+    fetch('https://isci-kayit.herokuapp.com/fruite', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -123,7 +123,7 @@ $('.fruiteupdate').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.fruitesil').click(function( event ){ // <---- "event" parameter here
-    fetch('http://127.0.0.1:8000/fruite', {
+    fetch('https://isci-kayit.herokuapp.com/fruite', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
