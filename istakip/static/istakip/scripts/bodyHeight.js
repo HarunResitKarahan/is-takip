@@ -46,6 +46,7 @@ $('.cards').click(function( event ){ // <---- "event" parameter here
     if (event.target.className === 'cards') {
         document.querySelectorAll('.cards').forEach(element => {
             element.style.display = 'none'
+            localStorage.removeItem('button')
         });
       }
 });
