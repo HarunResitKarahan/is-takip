@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Workers(models.Model):
@@ -13,3 +14,10 @@ class Fruits(models.Model):
 class SuperUser(models.Model):
     superUserId = models.CharField(max_length=200, default='')
     superUserPassword = models.CharField(max_length=200, default='')
+
+class Record(models.Model):
+    worker = models.CharField(max_length=200, default='')
+    workerFruiteId = models.CharField(max_length=200, default='')
+    workerFruiteKg = models.CharField(max_length=200, default='')
+    workerPayment = models.CharField(max_length=200, default='')
+    recordSaveTime = models.DateTimeField(default=timezone.now)

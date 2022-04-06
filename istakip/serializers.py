@@ -18,3 +18,13 @@ class SuperUserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SuperUser
         fields=('superUserId', 'superUserPassword')
+
+class RecordSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Record
+        fields=('worker', 'workerFruiteId','workerFruiteKg', 'workerPayment')
+
+class RecordSerializerGet(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Record
+        fields=('worker', 'workerFruiteId','workerFruiteKg', 'workerPayment', 'recordSaveTime')

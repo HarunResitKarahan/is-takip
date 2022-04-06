@@ -23,7 +23,17 @@ def index(request):
     for item in fruits_serializer.data:
         item = dict(item)
         fruitsdict.append(item)
-    return render (request, 'istakip/homepage.html', {'title': 'Homepage', 'workers': workersdict, 'fruits': fruitsdict})
+    records = Record.objects.all()
+    record_serializer = RecordSerializerGet(records, many= True)
+    recordsdict = []
+    for item in record_serializer.data:
+        item = dict(item)
+        item['recordSaveTime'] = item['recordSaveTime'].split('T')[0].split('-')[2] + '.' + item['recordSaveTime'].split('T')[0].split('-')[1] + '.' + item['recordSaveTime'].split('T')[0].split('-')[0]
+        recordsdict.append(item)
+    return render (request, 'istakip/homepage.html', {'title': 'Homepage',
+                                                      'workers': workersdict,
+                                                      'fruits': fruitsdict,
+                                                      'records': recordsdict})
     # return HttpResponse("Hello, world. You're at the polls index.")
 
 @csrf_exempt
@@ -95,6 +105,22 @@ def SuperUserApi(request, id = 0):
             superuser_serializer.save()
             return JsonResponse("Added Successfully", safe = False)
         return JsonResponse("Failed to Add", safe = False)
+
+@csrf_exempt
+def RecordApi(request, id = 0):
+    if request.method == 'POST':
+        record_data = JSONParser().parse(request)
+        for item in record_data['workers']:
+            print(item)
+            record_serializer = RecordSerializer(data = item)
+            if record_serializer.is_valid():
+                record_serializer.save()
+            else:
+                return JsonResponse("Failed to Add", safe = False)
+            print(record_serializer.errors)
+        
+        return JsonResponse("Added Successfully", safe = False)
+        
 # def homepage(request):
 #     return render (request, 'homepage/homepage.html', {'title': 'Homepage', 'posts': context})
 
