@@ -1,1 +1,1 @@
-# is-takip.herokuapp.com
+# isci-takip.herokuapp.com
