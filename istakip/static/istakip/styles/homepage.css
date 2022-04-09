@@ -152,3 +152,9 @@ span {
     cursor: pointer;
 }
 /* .homepage .body */
+
+@media screen and (min-width: 726px) {
+    .cards {
+      justify-content: flex-start;
+    }
+  }
