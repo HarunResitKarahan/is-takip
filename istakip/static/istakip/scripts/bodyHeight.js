@@ -62,7 +62,7 @@ $('.cards').click(function( event ){ // <---- "event" parameter here
 
 $('.login').click(function( event ){ // <---- "event" parameter here
     // fetch('https://isci-kayit.herokuapp.com/login', {
-    fetch('http://localhost:8000/login', {    
+    fetch('https://isci-kayit.herokuapp.com/login', {    
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
