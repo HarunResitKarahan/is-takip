@@ -65,5 +65,5 @@ html {
   background-color: whitesmoke;
 }
 body {
-  background-color: whitesmoke;
+  background-color: whitesmoke !important;
 }
