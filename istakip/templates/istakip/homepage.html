@@ -28,7 +28,29 @@
         </div>
       </div>
     </div>
-
+    <div class="cards" id="login">
+        <div class="cards-card">
+            <div class="body">
+                <div class="register">
+                    <div class="head">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-in"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                        <span>Giriş Yap</span>
+                    </div>
+                    <div class="input">
+                        <label for="admin-id">Kullanıcı ID: </label>
+                        <input type="text" name="admin-id">
+                    </div>
+                    <div class="input">
+                        <label for="password">Şifre: </label>
+                        <input type="password" name="password">
+                    </div>
+                    <div class="send login">
+                        <p>Giriş Yap</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="cards" id="kayit">
         <div class="cards-card">
             <div class="body">
@@ -102,7 +124,7 @@
                                 <td style="border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 1;border-left-width: 1;padding: 15px;">{{ forloop.counter }}</td>
                                 <td style="border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;padding: 15px;" name="worker-names">{{item.workerName}}</td>
                                 <td style="text-align: left;border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;padding: 15px;"><label for='toplanankilo' style='margin-left: 6px;'>Toplanan Kilo: </label><input id="kilo_{{item.id}}" type='number' name='toplanankilo' placeholder='0' min='0'></td>
-                                <td style="text-align: left;border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;padding: 15px;"><label for='yevmiye' style='margin-left: 6px;'>Yevmiye: </label><input id="yevmiye_{{item.id}}" type='number' value='0' min='0' name='yevmiye' disabled></td>
+                                <td style="text-align: left;border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;padding: 15px;"><label for='yevmiye' style='margin-left: 6px;'>Ücret: </label><input id="yevmiye_{{item.id}}" type='number' value='0' min='0' name='yevmiye' disabled></td>
                             </tr>
                             {% endfor %}
                         </table>

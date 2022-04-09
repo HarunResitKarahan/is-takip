@@ -120,7 +120,21 @@ def RecordApi(request, id = 0):
             print(record_serializer.errors)
         
         return JsonResponse("Added Successfully", safe = False)
-        
+
+@csrf_exempt
+def SignInApi(request, id = 0):
+    if request.method == 'POST':
+        try:
+            signin_data = JSONParser().parse(request)
+            signin = Admins.objects.filter(adminId = signin_data['adminId']).values() 
+            if signin_data['adminPassword'] == signin[0]['adminPassword']:
+                return JsonResponse("Giriş Başarılı", safe = False)
+
+        except:
+            return JsonResponse("Kullanıcı Adı veya Şifre Hatalı", safe = False)
+        # if check_password(patient_data['patientPassword'], patient[0]['patientPassword']) == True:
+        #     return JsonResponse("Giriş Başarılı", safe = False)
+
 # def homepage(request):
 #     return render (request, 'homepage/homepage.html', {'title': 'Homepage', 'posts': context})
 

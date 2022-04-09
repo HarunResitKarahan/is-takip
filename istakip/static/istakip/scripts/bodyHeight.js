@@ -7,6 +7,11 @@
 if (localStorage.getItem('button') !== null) {
     document.getElementById(localStorage.getItem('button')).style.display = 'flex'
 }
+if (sessionStorage.getItem('login') !== null) {
+    document.getElementById('login').style.display = 'none'
+}else {
+    document.getElementById('login').style.display = 'flex'
+}
 // $(localStorage.getItem('button')).css({display: flex})
 // console.log(localStorage.getItem('button'))
 
@@ -47,7 +52,7 @@ $('.buttons#4').click(function( event ){ // <---- "event" parameter here
     $('#rapor .worker').css({height: toplam})
 });
 $('.cards').click(function( event ){ // <---- "event" parameter here
-    if (event.target.className === 'cards') {
+    if (event.target.className === 'cards' && event.target.id !== 'login') {
         document.querySelectorAll('.cards').forEach(element => {
             element.style.display = 'none'
             localStorage.removeItem('button')
@@ -55,6 +60,28 @@ $('.cards').click(function( event ){ // <---- "event" parameter here
       }
 });
 
+$('.login').click(function( event ){ // <---- "event" parameter here
+    // fetch('https://isci-kayit.herokuapp.com/login', {
+    fetch('http://localhost:8000/login', {    
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            adminId: document.getElementsByName("admin-id")[0].value,
+            adminPassword: document.getElementsByName("password")[0].value
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data == 'Giriş Başarılı') {
+                document.querySelector('#login').style.display = 'none'
+                sessionStorage.setItem('login', data);
+            }
+            else {
+                alert(data)
+                location.reload()
+            }
+        })
+});
 $('.kaydet').click(function( event ){ // <---- "event" parameter here
     fetch('https://isci-kayit.herokuapp.com/workers/getworkers', {
         method: 'POST',
