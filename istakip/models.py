@@ -21,3 +21,7 @@ class Record(models.Model):
     workerFruiteKg = models.CharField(max_length=200, default='')
     workerPayment = models.CharField(max_length=200, default='')
     recordSaveTime = models.DateTimeField(default=timezone.now)
+
+class Admins(models.Model):
+    adminId = models.CharField(max_length=200, default='')
+    adminPassword = models.CharField(max_length=200, default='')

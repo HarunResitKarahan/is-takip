@@ -4,3 +4,5 @@ from .models import *
 admin.site.register(Workers)
 
 admin.site.register(Record)
+
+admin.site.register(Admins)
