@@ -4,19 +4,19 @@
 // var height = $('.input')
 // console.log($('.input').innerWidth())
 
-if (localStorage.getItem('button') !== null) {
-    document.getElementById(localStorage.getItem('button')).style.display = 'flex'
+if (sessionStorage.getItem('button') !== null) {
+    document.getElementById(sessionStorage.getItem('button')).style.display = 'flex'
 }
-if (sessionStorage.getItem('login') !== null) {
-    document.getElementById('login').style.display = 'none'
-}else {
-    document.getElementById('login').style.display = 'flex'
-}
-// $(localStorage.getItem('button')).css({display: flex})
-// console.log(localStorage.getItem('button'))
+// if (sessionStorage.getItem('login') !== null) {
+//     document.getElementById('login').style.display = 'none'
+// }else {
+//     document.getElementById('login').style.display = 'flex'
+// }
+// $(sessionStorage.getItem('button')).css({display: flex})
+// console.log(sessionStorage.getItem('button'))
 
 $('.buttons#1').click(function( event ){ // <---- "event" parameter here
-    localStorage.setItem('button', 'kayit')
+    sessionStorage.setItem('button', 'kayit')
     document.querySelector('#kayit').style.display = 'flex'
     var width = $('#1.register').outerWidth()
     $('#2.register').css({width: width})
@@ -28,11 +28,11 @@ $('.buttons#1').click(function( event ){ // <---- "event" parameter here
     $('.worker').css({height: toplam})
 });
 $('.buttons#2').click(function( event ){ // <---- "event" parameter here
-    localStorage.setItem('button', 'takip')
+    sessionStorage.setItem('button', 'takip')
     document.querySelector('#takip').style.display = 'flex'
 });
 $('.buttons#3').click(function( event ){ // <---- "event" parameter here
-    localStorage.setItem('button', 'ayarlar')
+    sessionStorage.setItem('button', 'ayarlar')
     document.querySelector('#ayarlar').style.display = 'flex'
 
     var toplam = 0
@@ -42,7 +42,7 @@ $('.buttons#3').click(function( event ){ // <---- "event" parameter here
     $('#ayarlar .worker').css({height: toplam})
 });
 $('.buttons#4').click(function( event ){ // <---- "event" parameter here
-    localStorage.setItem('button', 'rapor')
+    sessionStorage.setItem('button', 'rapor')
     document.querySelector('#rapor').style.display = 'flex'
 
     var toplam = 0
@@ -55,7 +55,7 @@ $('.cards').click(function( event ){ // <---- "event" parameter here
     if (event.target.className === 'cards' && event.target.id !== 'login') {
         document.querySelectorAll('.cards').forEach(element => {
             element.style.display = 'none'
-            localStorage.removeItem('button')
+            sessionStorage.removeItem('button')
         });
       }
 });
@@ -249,6 +249,41 @@ $('input[name="toplanankilo"]').keyup((event)=> {
     // console.log(event.target)
 })
 
+
+$('input[class="phone-number"]').keydown((event) => { 
+    // console.log(event.target.value.length)
+    // console.log(event.which)
+    if (event.target.value[event.target.value.length - 1] == '0' || event.target.value[event.target.value.length - 1] == '1' || event.target.value[event.target.value.length - 1] == '2' || event.target.value[event.target.value.length - 1] == '3' || event.target.value[event.target.value.length - 1] == '4' || event.target.value[event.target.value.length - 1] == '5' || event.target.value[event.target.value.length - 1] == '6' || event.target.value[event.target.value.length - 1] == '7' || event.target.value[event.target.value.length - 1] == '8' || event.target.value[event.target.value.length - 1] == '9') {
+        if (event.target.value.length == 1 && event.target.value !== '5') {
+            event.target.value = ''
+        } else if (event.target.value.length == 1){
+            event.target.value = '(' + String(event.target.value)
+        }
+        if (event.target.value.length == 4) {
+            if (event.which !== 8) {
+                event.target.value = String(event.target.value) + ') '   
+            }
+        }
+        if (event.target.value.length == 9) {
+            if (event.which !== 8) {
+                event.target.value = String(event.target.value) + ' '
+            }
+        }
+        if (event.target.value.length == 12) {
+            if (event.which !== 8) {
+                event.target.value = String(event.target.value) + ' ' 
+            }
+        }
+        if (!event.target.value.includes('(') && event.target.value.length > 0) {
+            event.target.value = '(' + String(event.target.value)
+        }
+    } else {
+        // event.target.value = event.target.value.split("").pop().join("")
+        event.target.value = event.target.value.slice(0, -1)
+        console.log(event.target.value.slice(0, -1))
+    }
+})
+
 $('.calculate').click(function( event ) {
     var fruiteKg = document.querySelector('#choice-fruite').options[document.querySelector('#choice-fruite').selectedIndex].value
     var toplamyevmiye = 0
@@ -276,7 +311,7 @@ $('.save').click(event => {
     var workedWorkers = []
     $.each($('input[name="toplanankilo"]'), function( key, item ) {
         if (item.value > 0)
-            console.log(item.value)
+            // console.log(item.value)
             // console.log(item.parentElement.parentElement.childNodes[1].innerText)
             workedWorkers.push({
                 // 'worker': item.id.split('_')[1],
@@ -289,7 +324,7 @@ $('.save').click(event => {
             // workedWorkers['workerFruiteKg'] = item.value
             // workedWorkers['workerPayment'] = document.querySelector('input[id="yevmiye_' + item.id.split('_')[1] + '"]').value
     })
-    console.log(workedWorkers)
+    // console.log(workedWorkers)
     // console.log(workedWorkers)
     fetch('https://isci-kayit.herokuapp.com/record', {
         method: 'POST',
@@ -348,3 +383,4 @@ $('input[name="date"]').change(event => {
         }
     })
 })
+

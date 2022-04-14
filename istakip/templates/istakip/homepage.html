@@ -42,7 +42,7 @@
                     </div>
                     <div class="input">
                         <label for="password">Şifre: </label>
-                        <input type="password" name="password">
+                        <input type="password" name="password" maxlength="15">
                     </div>
                     <div class="send login">
                         <p>Giriş Yap</p>
@@ -61,11 +61,11 @@
                     </div>
                     <div class="input">
                         <label for="name">Ad Soyad: </label>
-                        <input type="text" name="name">
+                        <input type="text" name="name" maxlength="15">
                     </div>
                     <div class="input">
                         <label for="phone">Telefon No: </label>
-                        <input type="tel" id="phone" name="phone" placeholder="5**-***-**-**" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
+                        <input type="tel" id="phone" name="phone" class="phone-number" placeholder="(5**)*** ** **" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" maxlength="15">
                     </div>
                     <div class="send kaydet">
                         <p>KAYDET</p>
@@ -228,7 +228,7 @@
                     </div>
                     <div class="input">
                         <label for="newno">Yeni No:</label>
-                        <input type="tel" name="newno" placeholder="5**-***-**-**" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
+                        <input type="tel" name="newno" class="phone-number" placeholder="(5**)*** ** **" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" maxlength="15">
                     </div>
                     <div class="send update">
                         <p>GÜNCELLE</p>
