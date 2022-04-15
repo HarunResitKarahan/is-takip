@@ -327,7 +327,7 @@ $('.save').click(event => {
     })
     // console.log(workedWorkers)
     // console.log(workedWorkers)
-    fetch('https://isci-kayit.herokuapp.com/record', {
+    fetch('https://isci-takip.herokuapp.com/record', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
