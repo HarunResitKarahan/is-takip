@@ -280,7 +280,8 @@ $('input[class="phone-number"]').keydown((event) => {
     } else {
         // event.target.value = event.target.value.split("").pop().join("")
         event.target.value = event.target.value.slice(0, -1)
-        console.log(event.target.value.slice(0, -1))
+        event.target.innerText = event.target.value
+        console.log(event.target.value)
     }
 })
 
