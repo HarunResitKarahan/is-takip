@@ -135,7 +135,7 @@ $('.sil').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.fruitekaydet').click(function( event ){ // <---- "event" parameter here
-    if (typeof(Number(document.getElementsByName("tl")[0].value)) == typeof(1)) {
+    if (typeof(Number(document.getElementsByName("tl")[0].value)) == typeof(1) && Number(document.getElementsByName("tl")[0].value) !== 0) {
         fetch('https://isci-takip.herokuapp.com/fruite', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -155,7 +155,7 @@ $('.fruitekaydet').click(function( event ){ // <---- "event" parameter here
     }
 });
 $('.fruiteupdate').click(function( event ){ // <---- "event" parameter here
-    if (typeof(Number(document.getElementsByName("tl")[0].value)) == typeof(1)) {
+    if (typeof(Number(document.getElementsByName("tlupdate")[0].value)) == typeof(1) && Number(document.getElementsByName("tlupdate")[0].value) !== 0) {
         fetch('https://isci-takip.herokuapp.com/fruite', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
