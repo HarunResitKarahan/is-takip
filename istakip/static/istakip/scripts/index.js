@@ -135,34 +135,45 @@ $('.sil').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.fruitekaydet').click(function( event ){ // <---- "event" parameter here
-    fetch('https://isci-takip.herokuapp.com/fruite', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            fruiteName: document.getElementsByName("meyve")[0].value,
-            fruiteKg: document.getElementsByName("tl")[0].value
+    if (typeof(Number(document.getElementsByName("tl")[0].value)) == typeof(1)) {
+        fetch('https://isci-takip.herokuapp.com/fruite', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                fruiteName: document.getElementsByName("meyve")[0].value,
+                fruiteKg: document.getElementsByName("tl")[0].value
+            })
         })
-    })
-        .then(response => response.json())
-        .then(data => {
-            alert(data)
-            location.reload()
-        })
+            .then(response => response.json())
+            .then(data => {
+                alert(data)
+                location.reload()
+            })
+    }
+    else {
+        alert("Hatalı Fiyat")
+    }
 });
 $('.fruiteupdate').click(function( event ){ // <---- "event" parameter here
-    fetch('https://isci-takip.herokuapp.com/fruite', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            id: document.querySelector('#fruiteupdate').options[document.querySelector('#fruiteupdate').selectedIndex].value,
-            fruiteKg: document.getElementsByName("tlupdate")[0].value
+    if (typeof(Number(document.getElementsByName("tl")[0].value)) == typeof(1)) {
+        fetch('https://isci-takip.herokuapp.com/fruite', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id: document.querySelector('#fruiteupdate').options[document.querySelector('#fruiteupdate').selectedIndex].value,
+                fruiteKg: document.getElementsByName("tlupdate")[0].value
+            })
         })
-    })
-        .then(response => response.json())
-        .then(data => {
-            alert(data)
-            location.reload()
-        })
+            .then(response => response.json())
+            .then(data => {
+                alert(data)
+                location.reload()
+            })
+    }
+    else {
+        alert("Hatalı Fiyat")
+    }
+    
 });
 $('.fruitesil').click(function( event ){ // <---- "event" parameter here
     fetch('https://isci-takip.herokuapp.com/fruite', {
