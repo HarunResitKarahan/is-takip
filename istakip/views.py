@@ -26,14 +26,18 @@ def index(request):
     records = Record.objects.all()
     record_serializer = RecordSerializerGet(records, many= True)
     recordsdict = []
+    recordsdatedict = []
     for item in record_serializer.data:
         item = dict(item)
         item['recordSaveTime'] = item['recordSaveTime'].split('T')[0].split('-')[2] + '.' + item['recordSaveTime'].split('T')[0].split('-')[1] + '.' + item['recordSaveTime'].split('T')[0].split('-')[0]
         recordsdict.append(item)
+        if not item['recordSaveTime'] in recordsdatedict:
+            recordsdatedict.append(item['recordSaveTime'])
     return render (request, 'istakip/homepage.html', {'title': 'Homepage',
                                                       'workers': workersdict,
                                                       'fruits': fruitsdict,
-                                                      'records': recordsdict})
+                                                      'records': recordsdict,
+                                                      'recordsdate': recordsdatedict})
     # return HttpResponse("Hello, world. You're at the polls index.")
 
 @csrf_exempt

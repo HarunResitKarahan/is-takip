@@ -326,9 +326,24 @@
                             {% endfor %}
                         </select> -->
                     </div>
-                    <table id="rapor-table" style="width: 100%;margin-top: 15px;display: none;">
+                    <table id="rapor-date" style="width: 100%;margin-top: 15px;display: none;">
                         <tr>
                           <th style="padding: 5px 15px 5px 15px;border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;"></th>
+                          <th style="text-align: left;width: 100%;padding: 5px 15px 5px 15px;border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;">Rapor Tarihi</th>
+                        </tr>
+                        {% for item in recordsdate %}
+                        <tr class="colums">
+                            <td style="border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 1;border-left-width: 1;padding: 15px;">{{ forloop.counter }}</td>
+                            <td style="text-align: left;border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;padding: 15px;" name="time">{{item}}</td>
+                        </tr>
+                        {% endfor %}
+                        <!-- <tr>
+                            <td colspan="6" style="padding: 40px;">Kayıt Bulunamadı.</td>
+                        </tr> -->
+                    </table>
+                    <table id="rapor-table" style="width: 100%;margin-top: 15px;display: none;">
+                        <tr>
+                          <th style="padding: 5px 15px 5px 15px;border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;"><svg id="back" xmlns="http://www.w3.org/2000/svg" style="color: red;cursor: pointer;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg></th>
                           <th style="padding: 5px 15px 5px 15px;border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;">İşçi</th>
                           <th style="padding: 5px 15px 5px 15px;border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;">Toplanan Ürün</th>
                           <th style="padding: 5px 15px 5px 15px;border: 1px solid rgba(90, 90, 90, 0.39);border-top-width: 0;border-right-width: 0;border-left-width: 0;">Toplanan Kilo</th>

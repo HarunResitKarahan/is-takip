@@ -152,6 +152,10 @@ span {
     border-radius: 5px;
     cursor: pointer;
 }
+#rapor-date .colums:hover {
+    cursor: pointer;
+    background-color: rgb(209, 220, 230);
+} 
 /* .homepage .body */
 
 @media screen and (max-width: 726px) {

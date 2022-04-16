@@ -187,59 +187,39 @@ $('#choice-fruite').change((event)=> {
     document.querySelector('#search').disabled = false
 })
 
-$('input[id="search"]').keyup((event) => {
-    var counter = 0
+$('input[id="search"]').bind('input', (event) => {
     if (event.target.value.length === 0) {
         $.each($('td[name="worker-names"]'), (key, item) => {
             item.parentNode.style.display = null
         })
     }else {
         $.each($('td[name="worker-names"]'), (key, item) => {
-            counter = 0
-            event.target.value.split('').forEach(element => {
-                item.innerText.split('').some(item => {
-                    if (element.toUpperCase() === item || element.toLowerCase() === item) {
-                        counter += 1
-                        return counter == 1
-                    }
-                })
-            });
-            // console.log(String(key) + ".ci kişi")
-            // console.log(event.target.value.length)
-            // console.log(counter)
-            if (counter < event.target.value.length) {
+            if (!item.innerText.includes(event.target.value)) {
                 item.parentNode.style.display = 'none'
-            }else if (counter >= event.target.value.length){
+            }else {
+                    // console.log(item.parentNode.classList)
                 item.parentNode.style.display = null
             }
         })
     }
 })
 
-$('input[id="search-rapor"]').keyup((event) => {
-    var counter = 0
+$('input[id="search-rapor"]').bind('input', (event) => {
     if (event.target.value.length === 0) {
         $.each($('td[name="worker-names-rapor"]'), (key, item) => {
-            item.parentNode.style.display = null
+            if (item.parentNode.classList == 'date-filtered'){
+                item.parentNode.style.display = null
+            }
         })
     }else {
         $.each($('td[name="worker-names-rapor"]'), (key, item) => {
-            counter = 0
-            event.target.value.split('').forEach(element => {
-                item.innerText.split('').some(item => {
-                    if (element.toUpperCase() === item || element.toLowerCase() === item) {
-                        counter += 1
-                        return counter == 1
-                    }
-                })
-            });
-            // console.log(String(key) + ".ci kişi")
-            // console.log(event.target.value.length)
-            // console.log(counter)
-            if (counter < event.target.value.length) {
+            if (!item.innerText.includes(event.target.value)) {
                 item.parentNode.style.display = 'none'
-            }else if (counter >= event.target.value.length){
-                item.parentNode.style.display = null
+            }else {
+                if (item.parentNode.classList == 'date-filtered'){
+                    // console.log(item.parentNode.classList)
+                    item.parentNode.style.display = null
+                }
             }
         })
     }
@@ -353,24 +333,35 @@ $('input[name="vehicle1"]').click(function ( event ) {
     // console.log(typeof(event.target.checked))
     if (event.target.checked == true) {
         document.querySelector('#rapor-search').style.display = 'none'
+        if (document.querySelector('#rapor-table').style.display === '') {
+            document.querySelector('#rapor-date').style.display = 'none'
+        } else {
+            document.querySelector('#rapor-date').style.display = null
+        }
+        // document.querySelector('#rapor-table').style.display = 'none'
         var checkboxes = document.querySelectorAll('.rapor-checkbox')
         checkboxes.forEach((item) => {
             if (item !== event.target) item.checked = false
         })
-        document.querySelector('#rapor-table').style.display = null
     }else {
+        document.querySelector('#rapor-date').style.display = 'none'
         document.querySelector('#rapor-table').style.display = 'none'
     }
 })
 $('input[name="vehicle2"]').click(function ( event ) { 
     if (event.target.checked == true) {
+        document.querySelector('#rapor-search').style.display = null
+        if (document.querySelector('#rapor-table').style.display === '') {
+            document.querySelector('#rapor-date').style.display = 'none'
+        } else {
+            document.querySelector('#rapor-date').style.display = null
+        }
         var checkboxes = document.querySelectorAll('.rapor-checkbox')
         checkboxes.forEach((item) => {
             if (item !== event.target) item.checked = false
         })
-        document.querySelector('#rapor-table').style.display = null
-        document.querySelector('#rapor-search').style.display = null
     }else {
+        document.querySelector('#rapor-date').style.display = 'none'
         document.querySelector('#rapor-table').style.display = 'none'
         document.querySelector('#rapor-search').style.display = 'none'
     }
@@ -390,3 +381,21 @@ $('input[name="date"]').change(event => {
     })
 })
 
+$('tr[class="colums"]').click(function ( event ) {
+    // console.log(event.currentTarget.querySelector('[name="time"]').innerText)
+    event.currentTarget.parentNode.parentNode.style.display = 'none'
+    document.querySelector('#rapor-table').style.display = null
+    document.querySelector('#rapor-table').querySelectorAll('[name="time"]').forEach(item => {
+        if (item.innerText !== event.currentTarget.querySelector('[name="time"]').innerText) {
+            item.parentNode.style.display = 'none'
+        } else {
+            item.parentNode.style.display = null
+            item.parentNode.classList.add('date-filtered')
+        }
+    })
+})
+
+$('#back').click(event => {
+    $('#rapor-table').hide()
+    document.querySelector('#rapor-date').style.display = null
+})
