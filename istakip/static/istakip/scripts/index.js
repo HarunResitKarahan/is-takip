@@ -383,6 +383,12 @@ $('input[name="date"]').change(event => {
                 item.parentNode.style.display = null
             }
         })
+    } else {
+        var times = document.querySelectorAll('td[name="time"]')
+        times.forEach(item=>{
+            item.parentNode.style.display = null
+            item.parentNode.classList.remove('date-filtered')
+        })
     }
 })
 
@@ -393,6 +399,7 @@ $('tr[class="colums"]').click(function ( event ) {
     document.querySelector('#rapor-table').querySelectorAll('[name="time"]').forEach(item => {
         if (item.innerText !== event.currentTarget.querySelector('[name="time"]').innerText) {
             item.parentNode.style.display = 'none'
+            item.parentNode.classList.remove('date-filtered')
         } else {
             item.parentNode.style.display = null
             item.parentNode.classList.add('date-filtered')
