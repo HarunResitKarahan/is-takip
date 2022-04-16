@@ -252,7 +252,7 @@ $('input[name="toplanankilo"]').keyup((event)=> {
 
 
 $('input[class="phone-number').bind('input', (event) => { 
-    console.log(event.target.value.length)
+    // console.log(event.target.value.length)
     // console.log(event.which)
     if ( $(event.target).val()[ $(event.target).val().length - 1] == '0' ||  $(event.target).val()[ $(event.target).val().length - 1] == '1' ||  $(event.target).val()[ $(event.target).val().length - 1] == '2' ||  $(event.target).val()[ $(event.target).val().length - 1] == '3' ||  $(event.target).val()[ $(event.target).val().length - 1] == '4' ||  $(event.target).val()[ $(event.target).val().length - 1] == '5' ||  $(event.target).val()[ $(event.target).val().length - 1] == '6' ||  $(event.target).val()[ $(event.target).val().length - 1] == '7' ||  $(event.target).val()[ $(event.target).val().length - 1] == '8' ||  $(event.target).val()[ $(event.target).val().length - 1] == '9') {
         if ( $(event.target).val().length == 1 &&  $(event.target).val() !== '5') {
