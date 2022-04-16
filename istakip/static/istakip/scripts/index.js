@@ -243,45 +243,45 @@ $('input[id="search-rapor"]').keyup((event) => {
 $('input[name="toplanankilo"]').keyup((event)=> {
     var fruiteKg = document.querySelector('#choice-fruite').options[document.querySelector('#choice-fruite').selectedIndex].value
     var id = event.target.id.split('_')[1]
-    document.querySelector('input[id="yevmiye_' + id + '"]').value = event.target.value * fruiteKg
-    document.querySelector('input[id="yevmiye_' + id + '"]').setAttribute("value", event.target.value * fruiteKg)
+    var payment = event.target.value * fruiteKg
+    document.querySelector('input[id="yevmiye_' + id + '"]').value = payment.toFixed(2) + '₺'
+    document.querySelector('input[id="yevmiye_' + id + '"]').setAttribute("value", payment.toFixed(2))
     event.target.setAttribute("value", event.target.value)
     // console.log(event.target)
 })
 
 
-$('input[class="phone-number"]').keydown((event) => { 
-    // console.log(event.target.value.length)
+$('input[class="phone-number').bind('input', (event) => { 
+    console.log(event.target.value.length)
     // console.log(event.which)
-    if (event.target.value[event.target.value.length - 1] == '0' || event.target.value[event.target.value.length - 1] == '1' || event.target.value[event.target.value.length - 1] == '2' || event.target.value[event.target.value.length - 1] == '3' || event.target.value[event.target.value.length - 1] == '4' || event.target.value[event.target.value.length - 1] == '5' || event.target.value[event.target.value.length - 1] == '6' || event.target.value[event.target.value.length - 1] == '7' || event.target.value[event.target.value.length - 1] == '8' || event.target.value[event.target.value.length - 1] == '9') {
-        if (event.target.value.length == 1 && event.target.value !== '5') {
-            event.target.value = ''
-        } else if (event.target.value.length == 1){
-            event.target.value = '(' + String(event.target.value)
+    if ( $(event.target).val()[ $(event.target).val().length - 1] == '0' ||  $(event.target).val()[ $(event.target).val().length - 1] == '1' ||  $(event.target).val()[ $(event.target).val().length - 1] == '2' ||  $(event.target).val()[ $(event.target).val().length - 1] == '3' ||  $(event.target).val()[ $(event.target).val().length - 1] == '4' ||  $(event.target).val()[ $(event.target).val().length - 1] == '5' ||  $(event.target).val()[ $(event.target).val().length - 1] == '6' ||  $(event.target).val()[ $(event.target).val().length - 1] == '7' ||  $(event.target).val()[ $(event.target).val().length - 1] == '8' ||  $(event.target).val()[ $(event.target).val().length - 1] == '9') {
+        if ( $(event.target).val().length == 1 &&  $(event.target).val() !== '5') {
+             $(event.target).val('')
+        } else if ( $(event.target).val().length == 1){
+             $(event.target).val('(' + String( $(event.target).val()))
         }
-        if (event.target.value.length == 4) {
+        if ( $(event.target).val().length == 4) {
             if (event.which !== 8) {
-                event.target.value = String(event.target.value) + ') '   
+                 $(event.target).val(String( $(event.target).val()) + ')' + ' ')
             }
         }
-        if (event.target.value.length == 9) {
+        if ( $(event.target).val().length == 9) {
             if (event.which !== 8) {
-                event.target.value = String(event.target.value) + ' '
+                 $(event.target).val(String( $(event.target).val()) + ' ')
             }
         }
-        if (event.target.value.length == 12) {
+        if ( $(event.target).val().length == 12) {
             if (event.which !== 8) {
-                event.target.value = String(event.target.value) + ' ' 
+                 $(event.target).val(String( $(event.target).val()) + ' ') 
             }
         }
-        if (!event.target.value.includes('(') && event.target.value.length > 0) {
-            event.target.value = '(' + String(event.target.value)
+        if (! $(event.target).val().includes('(') &&  $(event.target).val().length > 0) {
+             $(event.target).val('(' + String( $(event.target).val()))
         }
     } else {
         // event.target.value = event.target.value.split("").pop().join("")
-        event.target.value = event.target.value.slice(0, -1)
-        event.target.innerText = event.target.value
-        console.log(event.target.value)
+        // console.log(event.target)
+        $(event.target).val($(event.target).val().slice(0, -1))
     }
 })
 
