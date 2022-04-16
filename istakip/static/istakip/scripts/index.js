@@ -9,14 +9,17 @@ window.onload = () => {
     myInput.onpaste = e => e.preventDefault();
    }
 
-if (sessionStorage.getItem('button') !== null) {
-    document.getElementById(sessionStorage.getItem('button')).style.display = 'flex'
-}
-// if (sessionStorage.getItem('login') !== null) {
-//     document.getElementById('login').style.display = 'none'
-// }else {
-//     document.getElementById('login').style.display = 'flex'
+// if (sessionStorage.getItem('button') !== null) {
+//     document.getElementById(sessionStorage.getItem('button')).style.display = 'flex'
 // }
+if (sessionStorage.getItem('login') !== null) {
+    document.getElementById('login').style.display = 'none'
+    if (sessionStorage.getItem('button') !== null) {
+        document.getElementById(sessionStorage.getItem('button')).style.display = 'flex'
+    }
+}else {
+    document.getElementById('login').style.display = 'flex'
+}
 // $(sessionStorage.getItem('button')).css({display: flex})
 // console.log(sessionStorage.getItem('button'))
 
