@@ -62,7 +62,7 @@ $('.cards').click(function( event ){ // <---- "event" parameter here
 
 $('.login').click(function( event ){ // <---- "event" parameter here
     // fetch('https://isci-kayit.herokuapp.com/login', {
-    fetch('https://isci-kayit.herokuapp.com/login', {    
+    fetch('https://isci-takip.herokuapp.com/login', {    
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -83,7 +83,7 @@ $('.login').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.kaydet').click(function( event ){ // <---- "event" parameter here
-    fetch('https://isci-kayit.herokuapp.com/workers/getworkers', {
+    fetch('https://isci-takip.herokuapp.com/workers/getworkers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -98,7 +98,7 @@ $('.kaydet').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.update').click(function( event ){ // <---- "event" parameter here
-    fetch('https://isci-kayit.herokuapp.com/workers/getworkers', {
+    fetch('https://isci-takip.herokuapp.com/workers/getworkers', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -114,7 +114,7 @@ $('.update').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.sil').click(function( event ){ // <---- "event" parameter here
-    fetch('https://isci-kayit.herokuapp.com/workers/getworkers', {
+    fetch('https://isci-takip.herokuapp.com/workers/getworkers', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -130,7 +130,7 @@ $('.sil').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.fruitekaydet').click(function( event ){ // <---- "event" parameter here
-    fetch('https://isci-kayit.herokuapp.com/fruite', {
+    fetch('https://isci-takip.herokuapp.com/fruite', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -145,7 +145,7 @@ $('.fruitekaydet').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.fruiteupdate').click(function( event ){ // <---- "event" parameter here
-    fetch('https://isci-kayit.herokuapp.com/fruite', {
+    fetch('https://isci-takip.herokuapp.com/fruite', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -160,7 +160,7 @@ $('.fruiteupdate').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.fruitesil').click(function( event ){ // <---- "event" parameter here
-    fetch('https://isci-kayit.herokuapp.com/fruite', {
+    fetch('https://isci-takip.herokuapp.com/fruite', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -327,7 +327,7 @@ $('.save').click(event => {
     })
     // console.log(workedWorkers)
     // console.log(workedWorkers)
-    fetch('https://isci-kayit.herokuapp.com/record', {
+    fetch('https://isci-takip.herokuapp.com/record', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
