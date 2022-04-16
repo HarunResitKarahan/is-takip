@@ -369,16 +369,18 @@ $('input[name="vehicle2"]').click(function ( event ) {
 
 $('input[name="date"]').change(event => {
     // console.log(event.target.value)
-    var dates = event.target.value.split('-')[2] + '.' + event.target.value.split('-')[1] + '.' + event.target.value.split('-')[0]
-    var times = document.querySelectorAll('td[name="time"]')
-    times.forEach(item=>{
-        if (item.innerText !== dates) {
-            item.parentNode.style.display = 'none'
-        }
-        else if (item.innerText === dates){
-            item.parentNode.style.display = null
-        }
-    })
+    if (event.target.value !== '') {
+        var dates = event.target.value.split('-')[2] + '.' + event.target.value.split('-')[1] + '.' + event.target.value.split('-')[0]
+        var times = document.querySelectorAll('td[name="time"]')
+        times.forEach(item=>{
+            if (item.innerText !== dates) {
+                item.parentNode.style.display = 'none'
+            }
+            else if (item.innerText === dates){
+                item.parentNode.style.display = null
+            }
+        })
+    }
 })
 
 $('tr[class="colums"]').click(function ( event ) {
