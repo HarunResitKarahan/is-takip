@@ -1,1 +1,1 @@
-# isci-kayit.herokuapp.com
+# isci-takip.herokuapp.com
