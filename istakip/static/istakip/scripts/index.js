@@ -413,6 +413,3 @@ $('#back').click(event => {
     $('#rapor-table').hide()
     document.querySelector('#rapor-date').style.display = null
 })
-function forceLower(strInput) {
-    strInput.value=strInput.value.toLowerCase()
-}
