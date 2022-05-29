@@ -78,11 +78,15 @@ def FruiteApi(request, id = 0):
         return JsonResponse(fruits_serializer.data, safe = False)
     elif request.method == 'POST':
         fruits_data = JSONParser().parse(request)
-        print(fruits_data)
-        fruits_serializer = FruitsSerializer(data = fruits_data)
-        if fruits_serializer.is_valid():
-            fruits_serializer.save()
-            return JsonResponse(fruits_data['fruiteName'] + " Başarıyla Eklendi", safe = False)
+        fruits_data['fruiteName'] = fruits_data['fruiteName'].lower()
+        fruite = Fruits.objects.get(fruiteName = fruits_data['fruiteName'].lower())
+        if fruite != None:
+            return JsonResponse(fruits_data['fruiteName'] + " Zaten Mevcut", safe = False)
+        else:
+            fruits_serializer = FruitsSerializer(data = fruits_data)
+            if fruits_serializer.is_valid():
+                fruits_serializer.save()
+                return JsonResponse(fruits_data['fruiteName'] + " Başarıyla Eklendi", safe = False)
     elif request.method=='PUT':
         fruite_data = JSONParser().parse(request)
         fruite = Fruits.objects.get(id = fruite_data['id'])
