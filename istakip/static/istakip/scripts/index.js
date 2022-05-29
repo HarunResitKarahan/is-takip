@@ -91,19 +91,21 @@ $('.login').click(function( event ){ // <---- "event" parameter here
         })
 });
 $('.kaydet').click(function( event ){ // <---- "event" parameter here
-    fetch('https://isci-takip.herokuapp.com/workers/getworkers', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            workerName: document.getElementsByName("name")[0].value,
-            workerTelNo: document.getElementsByName("phone")[0].value
+    if (document.getElementsByName("phone")[0].value.length == 15) {
+        fetch('https://isci-takip.herokuapp.com/workers/getworkers', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                workerName: document.getElementsByName("name")[0].value,
+                workerTelNo: document.getElementsByName("phone")[0].value
+            })
         })
-    })
-        .then(response => response.json())
-        .then(data => {
-            alert(data)
-            location.reload()
-        })
+            .then(response => response.json())
+            .then(data => {
+                alert(data)
+                location.reload()
+            })   
+    }
 });
 $('.update').click(function( event ){ // <---- "event" parameter here
     fetch('https://isci-takip.herokuapp.com/workers/getworkers', {
