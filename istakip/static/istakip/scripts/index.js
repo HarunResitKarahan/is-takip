@@ -144,7 +144,7 @@ $('.fruitekaydet').click(function( event ){ // <---- "event" parameter here
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            fruiteName: document.getElementsByName("meyve")[0].value,
+            fruiteName: document.getElementsByName("meyve")[0].value.toLowerCase(),
             fruiteKg: document.getElementsByName("tl")[0].value
         })
     })

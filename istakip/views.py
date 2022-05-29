@@ -79,8 +79,9 @@ def FruiteApi(request, id = 0):
     elif request.method == 'POST':
         fruite = None
         fruits_data = JSONParser().parse(request)
-        fruits_data['fruiteName'] = fruits_data['fruiteName'].upper().capitalize()
+        fruits_data['fruiteName'] = fruits_data['fruiteName'].capitalize()
         try:
+            print(fruits_data['fruiteName'])
             fruite = Fruits.objects.get(fruiteName = fruits_data['fruiteName'])
         except:
             print(fruite)
