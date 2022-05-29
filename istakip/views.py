@@ -77,9 +77,13 @@ def FruiteApi(request, id = 0):
         fruits_serializer = FruitsSerializer(fruits, many = True)
         return JsonResponse(fruits_serializer.data, safe = False)
     elif request.method == 'POST':
+        fruite = None
         fruits_data = JSONParser().parse(request)
-        fruits_data['fruiteName'] = fruits_data['fruiteName'].lower()
-        fruite = Fruits.objects.get(fruiteName = fruits_data['fruiteName'].lower())
+        fruits_data['fruiteName'] = fruits_data['fruiteName'].lower().capitalize()
+        try:
+            fruite = Fruits.objects.get(fruiteName = fruits_data['fruiteName'])
+        except:
+            print(fruite)
         if fruite != None:
             return JsonResponse(fruits_data['fruiteName'] + " Zaten Mevcut", safe = False)
         else:
