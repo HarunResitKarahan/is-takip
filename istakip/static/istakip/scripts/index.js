@@ -144,7 +144,7 @@ $('.fruitekaydet').click(function( event ){ // <---- "event" parameter here
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            fruiteName: document.getElementsByName("meyve")[0].value.toLowerCase(),
+            fruiteName: document.getElementsByName("meyve")[0].value,
             fruiteKg: document.getElementsByName("tl")[0].value
         })
     })
@@ -413,3 +413,6 @@ $('#back').click(event => {
     $('#rapor-table').hide()
     document.querySelector('#rapor-date').style.display = null
 })
+function forceLower(strInput) {
+    strInput.value=strInput.value.toLowerCase()
+}
